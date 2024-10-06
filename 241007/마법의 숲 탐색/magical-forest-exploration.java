@@ -56,22 +56,22 @@ public class Main { 	// 맵의 상단으로만 출입 가능
 			int ny = y + dy[i];
 			if(map[nx][ny] < 0) {  // 출구 찾았다면
 				for(int j = 0; j < 4; j++) {  // 출구에서 갈 수 있는 골렘 찾기
-					if(i-j == 2 || j - i == 2) {
+					if(i-j == 2 || j - i == 2) { // 
 						continue;
 					}
 					int nnx = nx + dx[j];
 					int nny = ny + dy[j];
-					if(nnx>0 && nny >0 && nnx <=r && nny <= c) {
-						if(map[nnx][nny] != 0) {
+					if(nnx>0 && nny >0 && nnx <=r && nny <= c) { // 맵 밖인지 확인
+						if(map[nnx][nny] != 0) {    // 골렘인지 확인
 							int next = map[nnx][nny];
 							if(next < 0) {
 								next = next * (-1);
 							}
-							if(!visited[next]) {
-								for(int q = 0; q < 4; q++) {
+							if(!visited[next]) {  // 갔던 곳인지 확인
+								for(int q = 0; q < 4; q++) {  // 골렘의 중심 찾기
 									int nnnx = nnx + dx[q];
 									int nnny = nny + dy[q];
-									if(map[nnnx][nnny] == next) {
+									if(map[nnnx][nnny] == next) {  // 찾았으면 중심으로 이동.
 										visited[next] = true;
 										moveTin(nnnx, nnny);
 										visited[next] = false;
@@ -87,7 +87,19 @@ public class Main { 	// 맵의 상단으로만 출입 가능
 	}
 
 	public static int [] moveGol(int num, int y, int move) {
-		int x = -1;
+		int x = 0;
+		if(map[x+1][y] != 0) {
+			if(y-2 > 0) {
+				if(map[x+1][y-1] != 0) {
+					y--;
+				}
+			}
+			else if(y+2 <c){
+				if(map[x+1][y+1] != 0) {
+					y++;
+				}
+			}
+		}
 		
 		while(true) {
 			int down = x + 2;
