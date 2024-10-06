@@ -87,7 +87,7 @@ public class Main { 	// 맵의 상단으로만 출입 가능
 	}
 
 	public static int [] moveGol(int num, int y, int move) {
-		int x = 0;
+		int x = -1;
 		
 		while(true) {
 			int down = x + 2;
