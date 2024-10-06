@@ -91,9 +91,8 @@ public class Main { // 루돌프 : 가까운 산타, r 큰 산타, c 큰 산타.
 	    			moveSan(i, turn);
 	    			isDone = false;
 	    		}
-	    		if(resultSanta[i].sturn < turn) {
+	    		if(!resultSanta[i].isOut) {
 	    			isDone = false;
-	    			resultSanta[i].distance = (resultSanta[i].x - ru.x)*(resultSanta[i].x - ru.x) + (resultSanta[i].y - ru.y)*(resultSanta[i].y - ru.y);
 	    		}
 	    	}
 	    	
@@ -105,6 +104,7 @@ public class Main { // 루돌프 : 가까운 산타, r 큰 산타, c 큰 산타.
 	    			resultSanta[i].score++;
 	    		}
 	    	}
+
 	    }
 	    
 	    for(int i = 1 ; i <= p; i++) {
@@ -134,6 +134,8 @@ public class Main { // 루돌프 : 가까운 산타, r 큰 산타, c 큰 산타.
 						move = i;
 					}
 				}
+
+
 			}
 		}
 		
