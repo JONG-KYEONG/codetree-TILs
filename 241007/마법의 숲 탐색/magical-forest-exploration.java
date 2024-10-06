@@ -90,12 +90,12 @@ public class Main { 	// 맵의 상단으로만 출입 가능
 		int x = 0;
 		if(map[x+1][y] != 0) {
 			if(y-2 > 0) {
-				if(map[x+1][y-1] != 0) {
+				if(map[x][y-1] != 0) {
 					y--;
 				}
 			}
 			else if(y+2 <c){
-				if(map[x+1][y+1] != 0) {
+				if(map[x][y+1] != 0) {
 					y++;
 				}
 			}
@@ -130,7 +130,7 @@ public class Main { 	// 맵의 상단으로만 출입 가능
 					}
 				}
 			}
-			if(x <= 2) {
+			if(x <= 1) {
 				map = new int[r+1][c+1];
 				return null;
 			}
