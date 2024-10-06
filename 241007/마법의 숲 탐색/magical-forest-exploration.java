@@ -130,7 +130,7 @@ public class Main { 	// 맵의 상단으로만 출입 가능
 					}
 				}
 			}
-			if(x <= 1) {
+			if(x <= 2) {
 				map = new int[r+1][c+1];
 				return null;
 			}
