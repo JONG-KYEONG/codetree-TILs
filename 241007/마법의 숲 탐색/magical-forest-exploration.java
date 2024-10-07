@@ -54,7 +54,7 @@ public class Main { 	// 맵의 상단으로만 출입 가능
 		for(int i = 0; i < 4; i++) { // 출구 찾기
 			int nx = x + dx[i];
 			int ny = y + dy[i];
-			if(map[nx][ny] < 0) {  // 출구 찾았다면
+			if(map[nx][ny] == map[x][y] * (-1)) {  // 출구 찾았다면
 				for(int j = 0; j < 4; j++) {  // 출구에서 갈 수 있는 골렘 찾기
 					if(i-j == 2 || j - i == 2) { // 
 						continue;
