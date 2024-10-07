@@ -68,6 +68,7 @@ public class Main {	// 처음 출발지 0,
 				product[id][1] = revenue;
 				product[id][2] = dest;
 				idList.add(id);
+                dijstra();
 			}
 			else if(num == 300) {
 				int id = Integer.parseInt(st.nextToken());
