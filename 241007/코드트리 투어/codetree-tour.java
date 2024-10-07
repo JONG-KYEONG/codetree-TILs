@@ -1,3 +1,5 @@
+package study;
+
 import java.util.*;
 import java.io.*;
 
@@ -114,7 +116,6 @@ public class Main {	// 처음 출발지 0,
 						id = -1;
 					}
 					else {
-						distance[product[id][2]] = Integer.MAX_VALUE;
 						product[id][0] = 0;
 						product[id][1] = 0;
 						product[id][2] = 0;
