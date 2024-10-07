@@ -33,7 +33,6 @@ public class Main {	// 처음 출발지 0,
 			st = new StringTokenizer(br.readLine());
 			int num = Integer.parseInt(st.nextToken());
 			if(num == 100) {
-				isChange = true;
 				n = Integer.parseInt(st.nextToken());
 				m = Integer.parseInt(st.nextToken());
 //				map = new ArrayList[n][n];
@@ -59,6 +58,7 @@ public class Main {	// 처음 출발지 0,
 //						map[y][x] = dis;
 //					}
 				}
+                dijstra();
 			}
 			else if(num == 200) {
 				int id = Integer.parseInt(st.nextToken());
@@ -81,10 +81,7 @@ public class Main {	// 처음 출발지 0,
 				dijstra();
 			}
 			else if(num == 400) {
-				if(isChange) {
-					dijstra();
-					isChange = false;
-				}
+				dijstra();
 				int max = Integer.MIN_VALUE;
 				int id = -1;
 				for(Integer i : idList) {
@@ -121,7 +118,7 @@ public class Main {	// 처음 출발지 0,
 			}
 			else {
 				start = Integer.parseInt(st.nextToken());
-				isChange = true;
+				dijstra();
 			}
 		}
 		System.out.print(sb);
