@@ -51,8 +51,16 @@ public class Main {	// 처음 출발지 0,
 					int x = Integer.parseInt(st.nextToken());
 					int y = Integer.parseInt(st.nextToken());
 					int dis = Integer.parseInt(st.nextToken());
-					nodeList[x].add(new Node(y, dis));
-					nodeList[y].add(new Node(x, dis));
+					if(nodeList[x].contains(y)) {
+						if(nodeList[x].get(nodeList[x].indexOf(y)).dis > dis) {
+							nodeList[x].add(new Node(y, dis));
+							nodeList[y].add(new Node(x, dis));
+						}
+					}
+					else{
+						nodeList[x].add(new Node(y, dis));
+						nodeList[y].add(new Node(x, dis));						
+					}
 //					if(map[x][y] == 0 || map[x][y] > dis) {
 //						map[x][y] = dis;
 //						map[y][x] = dis;
