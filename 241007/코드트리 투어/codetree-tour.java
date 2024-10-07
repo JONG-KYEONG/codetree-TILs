@@ -28,7 +28,6 @@ public class Main {	// 처음 출발지 0,
 		idList = new ArrayList<>();
 		
 		q = Integer.parseInt(br.readLine());
-		Arrays.fill(distance, Integer.MAX_VALUE);
 		
 		while(q-->0) {
 			st = new StringTokenizer(br.readLine());
@@ -78,11 +77,10 @@ public class Main {	// 처음 출발지 0,
 					product[id][2] = 0;
 					idList.remove(idList.indexOf(id));
 				}
-				
+				dijstra();
 			}
 			else if(num == 400) {
 				if(isChange) {
-					Arrays.fill(distance, Integer.MAX_VALUE);
 					dijstra();
 					isChange = false;
 				}
@@ -90,6 +88,7 @@ public class Main {	// 처음 출발지 0,
 				int id = -1;
 				for(Integer i : idList) {
 					int cost = product[i][1] - distance[product[i][2]];
+					sb.append("최단 거리 "+i+": " + cost + "  ");
 					if(max <= cost) {
 						if(max == cost) {
 							if (i < id) {
@@ -116,6 +115,7 @@ public class Main {	// 처음 출발지 0,
 						idList.remove(idList.indexOf(id));						
 					}
 				}
+				sb.append("\n");
 				sb.append(id + "\n");
 			}
 			else {
@@ -141,6 +141,7 @@ public class Main {	// 처음 출발지 0,
 	}
 	
 	public static void dijstra() {
+		Arrays.fill(distance, Integer.MAX_VALUE);
 		PriorityQueue<Node> pq = new PriorityQueue<>();
 		
 		pq.add(new Node(start, 0));
