@@ -66,7 +66,7 @@ public class Main {	// 처음 출발지 0,
 //						map[y][x] = dis;
 //					}
 				}
-                dijstra();
+//               dijstra();
 			}
 			else if(num == 200) {
 				int id = Integer.parseInt(st.nextToken());
@@ -76,7 +76,7 @@ public class Main {	// 처음 출발지 0,
 				product[id][1] = revenue;
 				product[id][2] = dest;
 				idList.add(id);
-                dijstra();
+//                dijstra();
 			}
 			else if(num == 300) {
 				int id = Integer.parseInt(st.nextToken());
@@ -86,7 +86,7 @@ public class Main {	// 처음 출발지 0,
 					product[id][2] = 0;
 					idList.remove(idList.indexOf(id));
 				}
-				dijstra();
+//				dijstra();
 			}
 			else if(num == 400) {
 				dijstra();
@@ -126,7 +126,7 @@ public class Main {	// 처음 출발지 0,
 			}
 			else {
 				start = Integer.parseInt(st.nextToken());
-				dijstra();
+//				dijstra();
 			}
 		}
 		System.out.print(sb);
