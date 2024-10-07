@@ -66,7 +66,7 @@ public class Main {	// 처음 출발지 0,
 //						map[y][x] = dis;
 //					}
 				}
-//               dijstra();
+               dijstra();
 			}
 			else if(num == 200) {
 				int id = Integer.parseInt(st.nextToken());
@@ -89,7 +89,7 @@ public class Main {	// 처음 출발지 0,
 //				dijstra();
 			}
 			else if(num == 400) {
-				dijstra();
+//				dijstra();
 				int max = Integer.MIN_VALUE;
 				int id = -1;
 				for(Integer i : idList) {
@@ -126,7 +126,7 @@ public class Main {	// 처음 출발지 0,
 			}
 			else {
 				start = Integer.parseInt(st.nextToken());
-//				dijstra();
+				dijstra();
 			}
 		}
 		System.out.print(sb);
