@@ -33,6 +33,7 @@ public class Main {	// 처음 출발지 0,
 			st = new StringTokenizer(br.readLine());
 			int num = Integer.parseInt(st.nextToken());
 			if(num == 100) {
+				isChange = true;
 				n = Integer.parseInt(st.nextToken());
 				m = Integer.parseInt(st.nextToken());
 //				map = new ArrayList[n][n];
@@ -51,14 +52,21 @@ public class Main {	// 처음 출발지 0,
 					int x = Integer.parseInt(st.nextToken());
 					int y = Integer.parseInt(st.nextToken());
 					int dis = Integer.parseInt(st.nextToken());
-					nodeList[x].add(new Node(y, dis));
-					nodeList[y].add(new Node(x, dis));
+					if(nodeList[x].contains(y)) {
+						if(nodeList[x].get(nodeList[x].indexOf(y)).dis > dis) {
+							nodeList[x].add(new Node(y, dis));
+							nodeList[y].add(new Node(x, dis));
+						}
+					}
+					else {
+						nodeList[x].add(new Node(y, dis));
+						nodeList[y].add(new Node(x, dis));						
+					}
 //					if(map[x][y] == 0 || map[x][y] > dis) {
 //						map[x][y] = dis;
 //						map[y][x] = dis;
 //					}
 				}
-                dijstra();
 			}
 			else if(num == 200) {
 				int id = Integer.parseInt(st.nextToken());
@@ -68,7 +76,7 @@ public class Main {	// 처음 출발지 0,
 				product[id][1] = revenue;
 				product[id][2] = dest;
 				idList.add(id);
-                dijstra();
+				dijstra();
 			}
 			else if(num == 300) {
 				int id = Integer.parseInt(st.nextToken());
@@ -81,7 +89,10 @@ public class Main {	// 처음 출발지 0,
 				dijstra();
 			}
 			else if(num == 400) {
-				dijstra();
+				if(isChange) {
+					dijstra();
+					isChange = false;
+				}
 				int max = Integer.MIN_VALUE;
 				int id = -1;
 				for(Integer i : idList) {
@@ -118,7 +129,7 @@ public class Main {	// 처음 출발지 0,
 			}
 			else {
 				start = Integer.parseInt(st.nextToken());
-				dijstra();
+				isChange = true;
 			}
 		}
 		System.out.print(sb);
@@ -149,7 +160,7 @@ public class Main {	// 처음 출발지 0,
 		while(!pq.isEmpty()) {
 			Node node = pq.poll();
 		    for(Node next : nodeList[node.idx]){
-		        if(distance[next.idx] > distance[node.idx] + next.idx){
+		        if(distance[next.idx] > distance[node.idx] + next.dis){
 		        	distance[next.idx] = distance[node.idx] + next.dis;
 		            pq.add(new Node(next.idx, distance[next.idx]));
 		        }
