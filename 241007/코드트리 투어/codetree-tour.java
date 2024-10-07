@@ -1,5 +1,3 @@
-package study;
-
 import java.util.*;
 import java.io.*;
 
