@@ -18,7 +18,7 @@ public class Main {	// 처음 출발지 0,
 //	static int[][] map;
 	static ArrayList<Node> [] nodeList;  
 	static ArrayList<Integer> idList;
-	static int product[][] = new int[300500][3]; // id 매출 도착지
+	static int product[][] = new int[30500][3]; // id 매출 도착지
 	static int distance[] = new int [2000];
 
 	public static void main(String[] args) throws IOException {
