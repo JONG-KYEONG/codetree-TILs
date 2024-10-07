@@ -88,7 +88,7 @@ public class Main {	// 처음 출발지 0,
 				int id = -1;
 				for(Integer i : idList) {
 					int cost = product[i][1] - distance[product[i][2]];
-					sb.append("최단 거리 "+i+": " + cost + "  ");
+//					sb.append("최단 거리 "+i+": " + cost + "  ");
 					if(max <= cost) {
 						if(max == cost) {
 							if (i < id) {
@@ -115,7 +115,7 @@ public class Main {	// 처음 출발지 0,
 						idList.remove(idList.indexOf(id));						
 					}
 				}
-				sb.append("\n");
+//				sb.append("\n");
 				sb.append(id + "\n");
 			}
 			else {
